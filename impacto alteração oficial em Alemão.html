@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Impacto - Kampfkunstakademie: Boxen, Kickboxen, BJJ (Jiu-Jitsu), MMA und spezialisiertes Training.">
+    <title>Impacto | Kampfkünste und Combat Sports</title>
+    <!-- Importação das fontes Gótica (UnifrakturMaguntia) e Cursiva (Great Vibes) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --primary-color: #ff0000;
+            --card-bg: #111111;
+            --border-color: #333333;
+            --font-logo-main: 'UnifrakturMaguntia', cursive;
+            --font-logo-sub: 'Great Vibes', cursive;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Links administrativos e rápidos integrados nas unidades */
+        .unidade-links-uteis {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px dashed var(--border-color);
+            align-items: center;
+        }
+        .unidade-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(26, 26, 26, 0.9);
+            border: 1px solid var(--border-color);
+            color: #ccc;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        .unidade-link-btn:hover {
+            border-color: var(--primary-color);
+            color: #fff;
+            background: rgba(255, 0, 0, 0.15);
+        }
+
+        /* Header */
+        header {
+            background: rgba(0,0,0,0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-family: var(--font-logo-main);
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+        .nav-menu a {
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 8px;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background-color: #fff;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.98);
+                border-bottom: 1px solid var(--border-color);
+                padding: 24px 0;
+                text-align: center;
+                gap: 18px;
+                pointer-events: none;
+                z-index: 1002;
+            }
+            .nav-menu.active {
+                display: flex;
+                pointer-events: auto;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            .section-header {
+                padding-top: 10px;
+                margin-bottom: 24px;
+            }
+            .section-header h2 {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1920&q=80') no-repeat center center/cover;
+            border-bottom: 1px solid var(--border-color);
+            padding: 50px 0;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            color: #fff;
+            line-height: 1.15;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            color: #ccc;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 26px;
+            font-weight: bold;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section-header h2 {
+            font-size: 2.1rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .section-header p {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        /* Estilo da Caixa de Preços & Condições */
+        .precos-condicoes-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .precos-condicoes-card h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .precos-condicoes-card p {
+            color: #ddd;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+        }
+        .precos-condicoes-card .btn-agendar {
+            margin-top: 8px;
+        }
+
+        /* Abas e Unidades (Correção de toque mobile com z-index alto e position relative) */
+        .unidades-tabs-header, .grade-unidade-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+        }
+        .tab-btn {
+            background: var(--card-bg);
+            color: #fff;
+            border: 2px solid var(--border-color);
+            padding: 12px 24px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            position: relative;
+            z-index: 11;
+        }
+        .tab-btn:hover {
+            border-color: var(--primary-color);
+        }
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .unidade-pane {
+            display: none;
+        }
+        .unidade-pane.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .unidade-detalhe-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 28px;
+            border-radius: 8px;
+        }
+        .unidade-detalhe-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 8px; 
+            font-size: 1.6rem;
+        }
+        .unidade-detalhe-card .endereco {
+            margin-bottom: 18px;
+            color: #ddd;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Fotos */
+        .fotos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .foto-container {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            height: 220px;
+            background: #000;
+            cursor: pointer;
+        }
+        .foto-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .foto-container:hover img {
+            transform: scale(1.05);
+        }
+        .foto-legenda {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            pointer-events: none;
+        }
+
+        .unidade-modalidades-titulo {
+            font-size: 1.25rem;
+            color: #fff;
+            margin-top: 24px; 
+            margin-bottom: 16px; 
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        /* Modalidades Grid */
+        .modalidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .modalidade-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 18px;
+            border-radius: 8px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            transition: border-color 0.3s ease;
+        }
+        .modalidade-card:hover {
+            border-color: #555;
+        }
+        .modalidade-img-container {
+            width: 80px;
+            height: 80px;
+            min-width: 80px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #000;
+            cursor: pointer;
+        }
+        .modalidade-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .modalidade-info {
+            flex: 1;
+        }
+        .modalidade-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 4px;
+            font-size: 1.05rem;
+        }
+        .modalidade-card p {
+            font-size: 0.85rem;
+            color: #ccc;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .modalidade-meta {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        /* Grade de Treinos */
+        .grade-conteudo-unidade {
+            display: none;
+        }
+        .grade-conteudo-unidade.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .grade-table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .horarios-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            margin-bottom: 0;
+        }
+        .horarios-table th, .horarios-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px 14px;
+            font-size: 0.9rem;
+        }
+        .horarios-table th {
+            background-color: #1a1a1a;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .horarios-table td {
+            text-align: center;
+        }
+        .horarios-table td:first-child {
+            font-weight: bold;
+            color: var(--primary-color);
+            background: rgba(26, 26, 26, 0.5);
+        }
+
+        /* Estilos do Formulário de Aula Experimental */
+        .aula-experimental-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 32px;
+            margin-top: 40px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+        .form-section-title {
+            font-size: 1rem;
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 6px;
+            margin: 22px 0 14px 0;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #ddd;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .aula-experimental-box {
+                padding: 20px 15px;
+            }
+        }
+        .form-note {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-top: 14px;
+            font-style: italic;
+            text-align: center;
+        }
+        .regulamento-box {
+            margin-top: 24px;
+            padding-top: 18px;
+            border-top: 1px dashed var(--border-color);
+        }
+        .regulamento-box h4 {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .regulamento-box ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #ccc;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* Modal de Confirmação & Lightbox */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            padding: 28px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-card h3 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        .modal-card p {
+            color: #ccc;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Modal Lightbox das Fotos */
+        .lightbox-card {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-card img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.9);
+        }
+        .lightbox-caption {
+            margin-top: 12px;
+            color: #fff;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            padding: 5px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* FAQ (Otimizado para toque mobile) */
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            margin-bottom: 10px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff;
+            padding: 16px 20px;
+            text-align: left;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        .faq-icon {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .faq-answer {
+            padding: 0 20px 16px 20px;
+            color: #ccc;
+            display: none;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            width: 55px;
+            height: 55px;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--primary-color);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 28px;
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Rodapé */
+        footer {
+            background: #0a0a0a;
+            padding: 35px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+        footer a {
+            color: #fff;
+            margin: 0 8px;
+        }
+        footer a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="#inicio" class="logo" style="color: var(--primary-color);">impacto</a>
+                <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menü öffnen">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#inicio" onclick="fecharMenu()">Startseite</a></li>
+                    <li><a href="#cursos" onclick="fecharMenu()">Kurse</a></li>
+                    <li><a href="#grade" onclick="fecharMenu()">Trainingsplan</a></li>
+                    <li><a href="#sobre" onclick="fecharMenu()">Über uns</a></li>
+                    <li><a href="#horarios" onclick="fecharMenu()">Öffnungszeiten</a></li>
+                    <li><a href="#aula-experimental" onclick="fecharMenu()">Probetraining</a></li>
+                    <li><a href="#faq" onclick="fecharMenu()">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Início / Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Überschreite deine Grenzen bei Impacto</h1>
+                <p>Die Referenz für Kampfkünste. Trainiere mit Elite-Trainern in einer Einrichtung, die darauf ausgelegt ist, deine Disziplin und deinen Körper zu transformieren.</p>
+                <div>
+                    <a href="#aula-experimental" class="btn">Probetraining anfragen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós e Unidades -->
+    <section id="sobre">
+        <div class="container">
+            <div class="section-header">
+                <h2>Über uns & Unsere Standorte</h2>
+                <p>Lerne die exklusive Ausstattung und die Verwaltungskanäle der einzelnen Standorte kennen</p>
+            </div>
+
+            <div class="unidades-tabs-header">
+                <button type="button" class="tab-btn active" onclick="alternarUnidadeSobre('goppingen', event)">Impacto Göppingen</button>
+                <button type="button" class="tab-btn" onclick="alternarUnidadeSobre('stuttgart', event)">Impacto Stuttgart</button>
+            </div>
+
+            <!-- Unidade Göppingen -->
+            <div id="pane-goppingen" class="unidade-pane active">
+                <div class="unidade-detalhe-card">
+                    <h3>Impacto Göppingen</h3>
+                    <p class="endereco"><strong>Adresse:</strong> Seewiesenstr. 4, 73045 Eislingen/Fils</p>
+                    
+                    <div class="unidade-links-uteis">
+                        <span style="font-size: 0.85rem; color: #888; align-self: center; font-weight: bold;">Verwaltung & Kanäle Göppingen:</span>
+                        <a href="mailto:office.impacto0711@gmail.com" class="unidade-link-btn">📋 Verwaltung Göppingen</a>
+                        <a href="https://wa.me/491726348353?text=Ol%C3%A1,%20gostaria%20de%20informa%C3%A7%C3%B5es" target="_blank" rel="noopener noreferrer" class="unidade-link-btn">💬 WhatsApp Göppingen</a>
+                        <a href="https://www.instagram.com/impactoteamgoeppingen/" target="_blank" rel="noopener noreferrer" class="unidade-link-btn">📸 Instagram Göppingen</a>
+                    </div>
+
+                    <div class="fotos-grid" style="margin-top: 20px;">
+                        <div class="foto-container" onclick="abrirFotoModal(this)">
+                            <img src="./treino_bjj_impacto_teamjpj.png" alt="Tatami-Bereich Göppingen">
+                            <div class="foto-legenda">Box - Göppingen</div>
+                        </div>
+                        <div class="foto-container" onclick="abrirFotoModal(this)">
+                            <img src="./golpingpng.jpg.jfif" alt="Kampfbereich Göppingen">
+                            <div class="foto-legenda">Trainingsbereich</div>
+                        </div>
+                    </div>
+
+                    <h4 class="unidade-modalidades-titulo">Verfügbare Disziplinen in Göppingen</h4>
+                    <div class="modalidades-grid">
+                        <div class="modalidade-card">
+                            <div class="modalidade-img-container" onclick="abrirFotoModal(this)">
+                                <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=800&q=85" alt="Boxen">
+                            </div>
+                            <div class="modalidade-info">
+                                <h4>Boxen</h4>
+                                <p>Entwicklung von Agilität, Reflexen und intensivem physischem Conditioning.</p>
+                                <span class="modalidade-meta">Zielgruppe: Erwachsene / Niveau: Alle</span>
+                            </div>
+                        </div>
+                        <div class="modalidade-card">
+                            <div class="modalidade-img-container" onclick="abrirFotoModal(this)">
+                                <img src="./infantil.jpg.PNG" alt="BJJ">
+                            </div>
+                            <div class="modalidade-info">
+                                <h4>BJJ mit Kimono (Gi) & Kinder</h4>
+                                <p>Sanfte Kunst mit Kinder BJJ (Gi) Kursen montags und mittwochs.</p>
+                                <span class="modalidade-meta">Zielgruppe: Erwachsene & Kinder / Niveau: Alle</span>
+                            </div>
+                        </div>
+                        <div class="modalidade-card">
+                            <div class="modalidade-img-container" onclick="abrirFotoModal(this)">
+                                <img src="./kit box sturtegartjpg.jpeg" alt="Kickboxing">
+                            </div>
+                            <div class="modalidade-info">
+                                <h4>Kickboxing / K1</h4>
+                                <p>Starke Kombination aus Schlägen und Kicks für hohen Kalorienverbrauch.</p>
+                                <span class="modalidade-meta">Zielgruppe: Alle / Niveau: Anfänger bis Wettkampf</span>
+                            </div>
+                        </div>
+                        <div class="modalidade-card">
+                            <div class="modalidade-img-container" onclick="abrirFotoModal(this)">
+                                <img src="./infantil golpingjpg.jpeg" alt="Kids">
+                            </div>
+                            <div class="modalidade-info">
+                                <h4>Kindertraining (Kinder BJJ)</h4>
+                                <p>Fokus auf Disziplin, motorische Koordination und Respekt für Kinder.</p>
+                                <span class="modalidade-meta">Zielgruppe: Kinder</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unidade Stuttgart -->
+            <div id="pane-stuttgart" class="unidade-pane">
+                <div class="unidade-detalhe-card">
+                    <h3>Impacto Stuttgart</h3>
+                    <p class="endereco"><strong>Adresse:</strong> Haußmannstr. 146 b, 70188 Stuttgart-Ost<br><em>Spezifische Vormittagszeiten und komplette Infrastruktur in Stuttgart-Ost.</em></p>
+                    
+                    <div class="unidade-links-uteis">
+                        <span style="font-size: 0.85rem; color: #888; align-self: center; font-weight: bold;">Verwaltung & Kanäle Stuttgart:</span>
+                        <a href="mailto:office.impacto0711@gmail.com" class="unidade-link-btn">📋 Verwaltung Stuttgart</a>
+                        <a href="https://wa.me/491726348353?text=Ol%C3%A1,%20gostaria%20de%20informa%C3%A7%C3%B5es" target="_blank" rel="noopener noreferrer" class="unidade-link-btn">💬 WhatsApp Stuttgart</a>
+                        <a href="https://www.instagram.com/impactoteam_/" target="_blank" rel="noopener noreferrer" class="unidade-link-btn">📸 Instagram Stuttgart</a>
+                    </div>
+
+                    <div class="fotos-grid" style="margin-top: 20px;">
+                        <div class="foto-container" onclick="abrirFotoModal(this)">
+                            <img src="./imagestuddgart1png.jpg.jpeg" alt="Stuttgart">
+                            <div class="foto-legenda">BJJ Training Impacto Team - Stuttgart</div>
+                        </div>
+                        <div class="foto-container" onclick="abrirFotoModal(this)">
+                            <img src="./imagempng3jpg.jpeg" alt="Stuttgart Tatami">
+                            <div class="foto-legenda">BJJ Stuttgart</div>
+                        </div>
+                    </div>
+
+                    <h4 class="unidade-modalidades-titulo">Verfügbare Disziplinen in Stuttgart</h4>
+                    <div class="modalidades-grid">
+                        <div class="modalidade-card">
+                            <div class="modalidade-img-container" onclick="abrirFotoModal(this)">
+                                <img src="./boxe sturtegartjpg.jpeg" alt="Boxen und Lady Boxen">
+                            </div>
+                            <div class="modalidade-info">
+                                <h4>Boxen & Lady Boxen</h4>
+                                <p>Technikverbesserung, Sparring und Kurse für Lady Boxen / Lady Fitness Boxen.</p>
+                                <span class="modalidade-meta">Zielgruppe: Erwachsene / Niveau: Alle & Wettkampf</span>
+                            </div>
+                        </div>
+                        <div class="modalidade-card">
+                            <div class="modalidade-img-container" onclick="abrirFotoModal(this)">
+                                <img src="./BJJ com kimono (Gi).jpg.jfif" alt="BJJ No Gi">
+                            </div>
+                            <div class="modalidade-info">
+                                <h4>BJJ ohne Kimono (No Gi) & Lady BJJ</h4>
+                                <p>Dynamisches Grappling, einschließlich exklusiver Lady BJJ (No Gi) Zeiten.</p>
+                                <span class="modalidade-meta">Zielgruppe: Erwachsene / Niveau: Grundstufe & Fortgeschrittene</span>
+                            </div>
+                        </div>
+                        <div class="modalidade-card">
+                            <div class="modalidade-img-container" onclick="abrirFotoModal(this)">
+                                <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=800&q=85" alt="MMA">
+                            </div>
+                            <div class="modalidade-info">
+                                <h4>MMA</h4>
+                                <p>Komplettes Training, das Striking, Wrestling und Jiu-Jitsu integriert.</p>
+                                <span class="modalidade-meta">Zielgruppe: Aktive Praktizierende / Niveau: Grundstufe bis Fortgeschrittene</span>
+                            </div>
+                        </div>
+                        <div class="modalidade-card">
+                            <div class="modalidade-img-container" onclick="abrirFotoModal(this)">
+                                <img src="./femenino sturtegartjpg.jpeg" alt="Damen">
+                            </div>
+                            <div class="modalidade-info">
+                                <h4>Damenkurse & Ladys Kickboxen</h4>
+                                <p>Trainingseinheiten mit Fokus auf Conditioning und Selbstverteidigung mit aktualisierten Zeiten.</p>
+                                <span class="modalidade-meta">Zielgruppe: Damen</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cursos Geral -->
+    <section id="cursos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Unsere Disziplinen</h2>
+                <p>Entdecke die an unseren Standorten verfügbaren Optionen</p>
+            </div>
+
+            <!-- Card de Preços & Condições -->
+            <div class="precos-condicoes-card">
+                <h3>Preise & Tarife</h3>
+                <p>Entsprechend unseren Qualitätsstandards und der persönlichen Betreuung bieten wir keine automatischen Online-Anmeldungen an und veröffentlichen keine pauschalen Preise im Web. Unsere Tarife und Pläne werden bei einem persönlichen Besuch vor Ort oder durch direkten Kontakt mit der Verwaltung detailliert mitgeteilt.</p>
+                <a href="#aula-experimental" class="btn btn-agendar">📅 Besichtigung / Probetraining vereinbaren</a>
+            </div>
+
+            <div class="modalidades-grid">
+                <div class="modalidade-card">
+                    <div class="modalidade-img-container" onclick="abrirFotoModal(this)"><img src="./box.jpg.PNG" alt="Boxen"></div>
+                    <div class="modalidade-info">
+                        <h4>Boxen / Lady Boxen</h4>
+                        <p>Entwicklung von Agilität, Reflexen und physischem Conditioning.</p>
+                        <span class="modalidade-meta">Zielgruppe: Erwachsene / Niveau: Alle</span>
+                    </div>
+                </div>
+                <div class="modalidade-card">
+                    <div class="modalidade-img-container" onclick="abrirFotoModal(this)"><img src="./imagemstuttgart2png.jpg.jpeg" alt="BJJ"></div>
+                    <div class="modalidade-info">
+                        <h4>BJJ mit Kimono (Gi)</h4>
+                        <p>Sanfte Kunst mit Fokus auf Bodenkontrolle und Submissions.</p>
+                        <span class="modalidade-meta">Zielgruppe: Erwachsene & Kinder</span>
+                    </div>
+                </div>
+                <div class="modalidade-card">
+                    <div class="modalidade-img-container" onclick="abrirFotoModal(this)"><img src="./golping2png.jpg.jfif" alt="No Gi"></div>
+                    <div class="modalidade-info">
+                        <h4>BJJ ohne Kimono (No Gi)</h4>
+                        <p>Dynamisches Grappling ohne die Verwendung eines Kimonos.</p>
+                        <span class="modalidade-meta">Zielgruppe: Erwachsene</span>
+                    </div>
+                </div>
+                <div class="modalidade-card">
+                    <div class="modalidade-img-container" onclick="abrirFotoModal(this)"><img src="./kit box sturtegartjpg.jpeg" alt="Kick"></div>
+                    <div class="modalidade-info">
+                        <h4>Kickboxing / Ladys Kickboxen</h4>
+                        <p>Starke Kombination aus Schlägen und Kicks für hohen Kalorienverbrauch.</p>
+                        <span class="modalidade-meta">Zielgruppe: Alle</span>
+                    </div>
+                </div>
+                <div class="modalidade-card">
+                    <div class="modalidade-img-container" onclick="abrirFotoModal(this)"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=85" alt="MMA"></div>
+                    <div class="modalidade-info">
+                        <h4>MMA</h4>
+                        <p>Komplettes Training, das Striking und Grappling integriert.</p>
+                        <span class="modalidade-meta">Zielgruppe: Praktizierende</span>
+                    </div>
+                </div>
+                <div class="modalidade-card">
+                    <div class="modalidade-img-container" onclick="abrirFotoModal(this)"><img src="./femenino golpingjpg.jpeg" alt="Damen"></div>
+                    <div class="modalidade-info">
+                        <h4>Damenkurse</h4>
+                        <p>Trainingseinheiten mit Fokus auf Conditioning und exklusive Selbstverteidigung.</p>
+                        <span class="modalidade-meta">Zielgruppe: Damen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grade de Treinos -->
+    <section id="grade">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trainingsplan</h2>
+                <p>Wähle den Standort aus, um den spezifischen Kursplan anzuzeigen</p>
+            </div>
+
+            <div class="grade-unidade-tabs">
+                <button type="button" class="tab-btn active" onclick="mudarGradeUnidade('goppingen', event)">Impacto Göppingen</button>
+                <button type="button" class="tab-btn" onclick="mudarGradeUnidade('stuttgart', event)">Impacto Stuttgart</button>
+            </div>
+
+            <!-- Grade Göppingen -->
+            <div id="grade-goppingen" class="grade-conteudo-unidade active">
+                <div class="grade-table-container">
+                    <table class="horarios-table">
+                        <thead>
+                            <tr>
+                                <th>Wochentag</th>
+                                <th>Uhrzeit</th>
+                                <th>Disziplin / Gruppe</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3">Montag</td>
+                                <td>17:00 – 18:15</td>
+                                <td>Kinder BJJ (Gi)</td>
+                                <td>Kinder- und Jugendgruppe Jiu-Jitsu mit Kimono</td>
+                            </tr>
+                            <tr>
+                                <td>18:30 – 20:00</td>
+                                <td>BJJ (Gi) Erwachsene</td>
+                                <td>Anfänger und Fortgeschrittene</td>
+                            </tr>
+                            <tr>
+                                <td>20:00 – 21:45</td>
+                                <td>Kickboxing / K1</td>
+                                <td>Technik- und Fitnesstraining</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Dienstag</td>
+                                <td>16:45 – 18:15</td>
+                                <td>Boxen / Funktionelles Training</td>
+                                <td>Conditioning und Technik</td>
+                            </tr>
+                            <tr>
+                                <td>18:30 – 19:45</td>
+                                <td>Kickboxing Fortgeschrittene</td>
+                                <td>Sparring und Combat</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">Mittwoch</td>
+                                <td>17:30 – 18:45</td>
+                                <td>Kinder BJJ (Gi)</td>
+                                <td>Kinder- und Jugendgruppe Jiu-Jitsu mit Kimono</td>
+                            </tr>
+                            <tr>
+                                <td>19:00 – 20:30</td>
+                                <td>BJJ mit Kimono (Gi)</td>
+                                <td>Bodentechniken</td>
+                            </tr>
+                            <tr>
+                                <td>20:30 – 21:30</td>
+                                <td>No-Gi (Ohne Kimono)</td>
+                                <td>Grappling</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Donnerstag</td>
+                                <td>16:45 – 18:15</td>
+                                <td>Boxen</td>
+                                <td>Grundlagen und Pratzen</td>
+                            </tr>
+                            <tr>
+                                <td>18:30 – 21:15</td>
+                                <td>Kickboxing / Sparring</td>
+                                <td>Hochintensives Training</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Freitag</td>
+                                <td>16:45 – 18:30</td>
+                                <td>BJJ (Gi / Drills)</td>
+                                <td>Positionen und Wiederholungen</td>
+                            </tr>
+                            <tr>
+                                <td>18:30 – 21:30</td>
+                                <td>Kickboxing / MMA Drills</td>
+                                <td>Wochenabschluss</td>
+                            </tr>
+                            <tr>
+                                <td>Samstag</td>
+                                <td>09:45 – 12:00</td>
+                                <td>Open Mat / Freies Training</td>
+                                <td>Allgemeine Wiederholung und freies Sparring</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Grade Stuttgart -->
+            <div id="grade-stuttgart" class="grade-conteudo-unidade">
+                <div class="grade-table-container">
+                    <table class="horarios-table">
+                        <thead>
+                            <tr>
+                                <th>Wochentag</th>
+                                <th>Uhrzeit</th>
+                                <th>Disziplin / Gruppe</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3">Montag</td>
+                                <td>15:45 – 17:30</td>
+                                <td>Boxen / Lady Boxen</td>
+                                <td>Einführung und Damentechnik</td>
+                            </tr>
+                            <tr>
+                                <td>17:45 – 19:30</td>
+                                <td>BJJ ohne Kimono (No-Gi)</td>
+                                <td>Dynamisches Grappling</td>
+                            </tr>
+                            <tr>
+                                <td>19:30 – 21:45</td>
+                                <td>MMA / Kickboxing</td>
+                                <td>Fortgeschrittenentraining</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="4">Dienstag</td>
+                                <td>06:00 – 07:00</td>
+                                <td>Früh-Funktionstraining</td>
+                                <td>Frühes physisches Conditioning</td>
+                            </tr>
+                            <tr>
+                                <td>08:45 – 11:30</td>
+                                <td>Spezielle Vormittagszeit</td>
+                                <td>Freies Training / Technik</td>
+                            </tr>
+                            <tr>
+                                <td>15:45 – 18:30</td>
+                                <td>Lady Kickboxen & BJJ Basis</td>
+                                <td>Exklusive Damengruppe und Anfänger</td>
+                            </tr>
+                            <tr>
+                                <td>19:00 – 20:20</td>
+                                <td>Lady BJJ (No Gi)</td>
+                                <td>Weibliches Grappling ohne Kimono</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">Mittwoch</td>
+                                <td>15:45 – 17:45</td>
+                                <td>Boxen Fortgeschrittene</td>
+                                <td>Technische Verfeinerung</td>
+                            </tr>
+                            <tr>
+                                <td>18:00 – 19:20</td>
+                                <td>Lady Fitness Boxen</td>
+                                <td>Funktionales und technisches Frauentraining</td>
+                            </tr>
+                            <tr>
+                                <td>19:45 – 21:45</td>
+                                <td>MMA / Total Combat</td>
+                                <td>Disziplinen-Integration</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">Donnerstag</td>
+                                <td>08:45 – 11:30</td>
+                                <td>Vormittagstraining</td>
+                                <td>Vormittagseinheit</td>
+                            </tr>
+                            <tr>
+                                <td>15:45 – 18:30</td>
+                                <td>Lady Boxen / Damenkurse</td>
+                                <td>Fokus auf Selbstverteidigung und Fitness</td>
+                            </tr>
+                            <tr>
+                                <td>18:30 – 21:45</td>
+                                <td>Kickboxing & BJJ No-Gi</td>
+                                <td>Komplettes Abendtraining</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">Freitag</td>
+                                <td>06:00 – 07:00</td>
+                                <td>Vormittagstraining</td>
+                                <td>Frühes Conditioning</td>
+                            </tr>
+                            <tr>
+                                <td>15:45 – 18:30</td>
+                                <td>Boxen & BJJ Grundlagen</td>
+                                <td>Reine Technik</td>
+                            </tr>
+                            <tr>
+                                <td>18:30 – 21:45</td>
+                                <td>Allgemeines Sparring / MMA</td>
+                                <td>Wochenausklang</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3">Samstag</td>
+                                <td>10:00 – 11:00</td>
+                                <td>Lady Boxen</td>
+                                <td>Boxtechnik für Frauen</td>
+                            </tr>
+                            <tr>
+                                <td>11:00 – 12:00</td>
+                                <td>Ladys Kickboxen</td>
+                                <td>Frauen-Kickboxen</td>
+                            </tr>
+                            <tr>
+                                <td>12:00 – 13:30</td>
+                                <td>Freies Training</td>
+                                <td>Freie Praxis und Verbesserung</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horários de Funcionamento -->
+    <section id="horarios">
+        <div class="container">
+            <div class="section-header">
+                <h2>Öffnungszeiten</h2>
+                <p>Dies sind die offiziellen Öffnungszeiten der Akademie</p>
+            </div>
+            <div class="grade-table-container">
+                <table class="horarios-table" style="background: var(--card-bg); border-radius: 6px; overflow: hidden;">
+                    <thead>
+                        <tr>
+                            <th>Tag</th>
+                            <th>Impacto Göppingen</th>
+                            <th>Impacto Stuttgart</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="color:var(--text-color); background:none;">Montag</td><td>17:00–21:45</td><td>15:45–21:45</td></tr>
+                        <tr><td style="color:var(--text-color); background:none;">Dienstag</td><td>16:45–19:45</td><td>06:00–07:00 · 08:45–11:30 · 15:45–21:15</td></tr>
+                        <tr><td style="color:var(--text-color); background:none;">Mittwoch</td><td>17:30–21:30</td><td>15:45–21:45</td></tr>
+                        <tr><td style="color:var(--text-color); background:none;">Donnerstag</td><td>16:45–21:15</td><td>08:45–11:30 · 15:45–21:45</td></tr>
+                        <tr><td style="color:var(--text-color); background:none;">Freitag</td><td>16:45–21:30</td><td>06:00–07:00 · 15:45–21:45</td></tr>
+                        <tr><td style="color:var(--text-color); background:none;">Samstag</td><td>09:45–12:00</td><td>10:00–14:00</td></tr>
+                        <tr><td style="color:var(--text-color); background:none;">Sonntag/Feiertage</td><td>Geschlossen</td><td>Geschlossen</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Formulário de Aula Experimental Otimizado -->
+            <div class="aula-experimental-box" id="aula-experimental">
+                <div class="section-header" style="padding-top: 0; margin-bottom: 20px;">
+                    <h2>Anmeldung zum Probetraining</h2>
+                    <p style="color: var(--primary-color); font-weight: bold;">Platzanfrage (Maximal 3 Teilnehmer pro Session)</p>
+                </div>
+
+                <form id="formAulaExperimental" onsubmit="enviarSolicitacao(event)">
+                    
+                    <!-- Passo 1: Faixa Etária e Unidade -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="faixaEtaria">Altersgruppe *</label>
+                            <select id="faixaEtaria" name="Faixa_Etaria" required onchange="atualizarOpcoesFormulario()">
+                                <option value="" disabled selected>Altersgruppe auswählen...</option>
+                                <option value="ate_15">Bis 15 Jahre (einschließlich)</option>
+                                <option value="a_partir_16">Ab 16 Jahren</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="unidadeForm">Standort *</label>
+                            <select id="unidadeForm" name="Unidade" required onchange="atualizarOpcoesFormulario()">
+                                <option value="" disabled selected>Standort auswählen...</option>
+                                <option value="Impacto Göppingen">Impacto Göppingen</option>
+                                <option value="Impacto Stuttgart">Impacto Stuttgart</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Passo 2: Primeiras Aulas -->
+                    <div class="form-section-title">1. Probetraining (Obligatorisch)</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="curso1">Disziplin / Kurs *</label>
+                            <select id="curso1" name="Primeira_Modalidade" required>
+                                <option value="" disabled selected>Bitte zuerst Standort und Altersgruppe wählen...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dataHora1">Gewünschtes Datum und Uhrzeit *</label>
+                            <input type="datetime-local" id="dataHora1" name="Primeira_Data_Horario" required>
+                        </div>
+                    </div>
+
+                    <!-- Passo 3: Segunda Aula Opcional -->
+                    <div class="form-section-title">2. Probetraining (Optional – Andere Disziplin)</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="curso2">Zweite Disziplin (Optional)</label>
+                            <select id="curso2" name="Segunda_Modalidade">
+                                <option value="" selected>Kein 2. Probetraining</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dataHora2">Datum und Uhrzeit des 2. Trainings</label>
+                            <input type="datetime-local" id="dataHora2" name="Segunda_Data_Horario">
+                        </div>
+                    </div>
+
+                    <!-- Passo 4: Dados do Participante -->
+                    <div class="form-section-title">Kontaktdaten des Teilnehmers</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Vollständiger Name des Teilnehmers *</label>
+                            <input type="text" id="nome" name="Nome_Participante" placeholder="Name des Schülers" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="idade">Genaue Alter *</label>
+                            <input type="number" id="idade" name="Idade" min="4" max="99" placeholder="Z. B. 14" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Kontakt-E-Mail *</label>
+                            <input type="email" id="email" name="Email" placeholder="ihre@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefon / WhatsApp *</label>
+                            <input type="tel" id="telefone" name="Telefone" placeholder="+49 ..." required>
+                        </div>
+                    </div>
+
+                    <!-- Campos do Responsável (Exibido para menores de 16 anos) -->
+                    <div id="blocoResponsable" style="display: none; border-left: 3px solid var(--primary-color); padding-left: 12px; margin-top: 12px;">
+                        <div class="form-section-title" style="margin-top: 0;">Daten des Erziehungsberechtigten (Obligatorisch für Minderjährige)</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nomeResponsavel">Name des Erziehungsberechtigten *</label>
+                                <input type="text" id="nomeResponsavel" name="Nome_Responsavel" placeholder="Name von Vater/Mutter oder Vormund">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefoneResponsavel">Telefon des Erziehungsberechtigten *</label>
+                                <input type="tel" id="telefoneResponsavel" name="Telefone_Responsavel" placeholder="Notruf-Telefonnummer">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 28px;">
+                        <button type="submit" class="btn" style="width: 100%;">Probetraining-Anfrage absenden</button>
+                    </div>
+
+                    <p class="form-note">"Deine Anfrage wird an impacto0711@gmail.com gesendet. Der Platz ist erst nach unserer persönlichen Bestätigung garantiert."</p>
+
+                    <div class="regulamento-box">
+                        <h4>Reglement für das Probetraining</h4>
+                        <ul>
+                            <li>Die Teilnahme an maximal zwei Probetrainings in verschiedenen Disziplinen ist erlaubt.</li>
+                            <li>Die Anfrage unterliegt der Prüfung des Limits von maximal 3 Teilnehmern pro Session.</li>
+                            <li>Bitte erscheine 15 Minuten vor Beginn.</li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Confirmação Automática -->
+    <div class="modal-overlay" id="modalConfirmacao" onclick="fecharModalFora(event)">
+        <div class="modal-card">
+            <h3>Anfrage erhalten!</h3>
+            <p>Deine Anfrage für ein Probetraining wurde erfolgreich an unser zentrales Team (impacto0711@gmail.com) gesendet.</p>
+            <p style="color: var(--primary-color); font-weight: bold;">⚠️ Wichtig: Die Zeiten sind noch NICHT automatisch garantiert. Wir prüfen die Verfügbarkeit der Gruppe (max. 3 Schüler pro Session) und senden dir in Kürze eine definitive Bestätigung per E-Mail oder Telefon.</p>
+            <button type="button" class="btn" onclick="fecharModal()">Verstanden</button>
+        </div>
+    </div>
+
+    <!-- Modal Lightbox Ampliação de Imagem -->
+    <div class="modal-overlay" id="modalFoto" onclick="fecharFotoModal(event)">
+        <div class="lightbox-card">
+            <button type="button" class="lightbox-close" onclick="fecharFotoModalBtn()">&times;</button>
+            <img id="imgModalAmpliada" src="" alt="Ampliada">
+            <div id="captionModalAmpliada" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Häufig gestellte Fragen & Regeln</h2>
+                <p>Erfahre mehr über Anmeldungen, Voraussetzungen und allgemeine Regeln</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">Welche Voraussetzungen gelten für Anmeldung und Alter? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer">Kindertarife gelten bis 15 Jahre. Ab 16 Jahren gilt der Erwachsenentarif. Wir erlauben keine Online-Mitgliedschaften und zeigen keine Preise auf der Website.</div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">Welche Ausrüstung wird benötigt? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer">Bring für das erste Training bequeme Sportkleidung (T-Shirt und Shorts/Leggings) mit. Spezifische Ausrüstung muss gemäß Reglement erworben werden.</div>
+                </div>
+                <div class="faq-item">
+                    <button type="button" class="faq-question" onclick="toggleFaq(this)">Welche Regeln gelten für das Probetraining? <span class="faq-icon">+</span></button>
+                    <div class="faq-answer">Du kannst an bis zu 2 Probetrainings in unterschiedlichen Disziplinen teilnehmen. Unsere Bestätigung muss abgewartet werden und pünktliches Erscheinen ist erforderlich.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/491726348353?text=Ol%C3%A1,%20vim%20pelo%20site%20e%20gostaria%20de%20atendimento." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Kontaktiere uns über WhatsApp">
+        💬
+    </a>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Impacto - Kampfkünste und Combat Sports. Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 10px;">
+                <a href="#sobre">Standorte</a> | 
+                <a href="#cursos">Kurse</a> | 
+                <a href="#grade">Plan</a> | 
+                <a href="#aula-experimental">Probetraining</a> | 
+                <a href="mailto:office.impacto0711@gmail.com">Verwaltung</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        function fecharMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.remove('active');
+        }
+
+        function alternarUnidadeSobre(unidade, event) {
+            if (event) event.preventDefault();
+            
+            const containerSobre = document.querySelector('#sobre');
+            if (!containerSobre) return;
+
+            const btns = containerSobre.querySelectorAll('.tab-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            
+            const panes = containerSobre.querySelectorAll('.unidade-pane');
+            panes.forEach(pane => pane.classList.remove('active'));
+            
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            } else {
+                btns.forEach(btn => {
+                    if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(unidade)) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+            
+            const paneAtivo = document.getElementById('pane-' + unidade);
+            if (paneAtivo) {
+                paneAtivo.classList.add('active');
+            }
+        }
+
+        function mudarGradeUnidade(unidade, event) {
+            if (event) event.preventDefault();
+
+            const containerGrade = document.querySelector('#grade');
+            if (!containerGrade) return;
+
+            const btns = containerGrade.querySelectorAll('.tab-btn');
+            btns.forEach(btn => btn.classList.remove('active'));
+            
+            const panes = containerGrade.querySelectorAll('.grade-conteudo-unidade');
+            panes.forEach(pane => pane.classList.remove('active'));
+            
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            } else {
+                btns.forEach(btn => {
+                    if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(unidade)) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+            
+            const gradeAtiva = document.getElementById('grade-' + unidade);
+            if (gradeAtiva) {
+                gradeAtiva.classList.add('active');
+            }
+        }
+
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            item.classList.toggle('active');
+            const icon = button.querySelector('.faq-icon');
+            if (item.classList.contains('active')) {
+                icon.textContent = '−';
+            } else {
+                icon.textContent = '+';
+            }
+        }
+
+        function atualizarOpcoesFormulario() {
+            const faixaEtaria = document.getElementById('faixaEtaria').value;
+            const curso1Select = document.getElementById('curso1');
+            const curso2Select = document.getElementById('curso2');
+            
+            if (!curso1Select) return;
+            
+            curso1Select.innerHTML = '<option value="" disabled selected>Disziplin auswählen...</option>';
+            if (curso2Select) {
+                curso2Select.innerHTML = '<option value="" selected>Kein 2. Probetraining</option>';
+            }
+            
+            if (faixaEtaria === 'ate_15') {
+                curso1Select.innerHTML += '<option value="Kinder BJJ">Kinder BJJ (Gi)</option>';
+                if (curso2Select) {
+                    curso2Select.innerHTML += '<option value="Kinder BJJ">Kinder BJJ (Gi)</option>';
+                }
+            } else if (faixaEtaria === 'a_partir_16') {
+                const opcoesAdulto = `
+                    <option value="Boxe">Boxen</option>
+                    <option value="Kickboxing">Kickboxing / K1</option>
+                    <option value="BJJ Gi">BJJ mit Kimono (Gi)</option>
+                    <option value="BJJ No-Gi">BJJ ohne Kimono (No-Gi)</option>
+                    <option value="Lady BJJ No-Gi">Lady BJJ (No Gi)</option>
+                    <option value="Lady Fitness Boxen">Lady Fitness Boxen / Lady Boxen</option>
+                    <option value="Ladys Kickboxen">Ladys Kickboxen</option>
+                    <option value="MMA">MMA</option>
+                `;
+                curso1Select.innerHTML += opcoesAdulto;
+                if (curso2Select) {
+                    curso2Select.innerHTML += opcoesAdulto;
+                }
+            }
+            
+            const blocoResponsavel = document.getElementById('blocoResponsable');
+            if (blocoResponsavel) {
+                if (faixaEtaria === 'ate_15') {
+                    blocoResponsavel.style.display = 'block';
+                    document.getElementById('nomeResponsavel').required = true;
+                    document.getElementById('telefoneResponsavel').required = true;
+                } else {
+                    blocoResponsavel.style.display = 'none';
+                    document.getElementById('nomeResponsavel').required = false;
+                    document.getElementById('telefoneResponsavel').required = false;
+                }
+            }
+        }
+
+        function enviarSolicitacao(event) {
+            event.preventDefault();
+            const modal = document.getElementById('modalConfirmacao');
+            if (modal) {
+                modal.classList.add('active');
+            }
+        }
+
+        function fecharModal() {
+            const modal = document.getElementById('modalConfirmacao');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+            const form = document.getElementById('formAulaExperimental');
+            if (form) {
+                form.reset();
+            }
+        }
+
+        function fecharModalFora(event) {
+            if (event.target.id === 'modalConfirmacao') {
+                fecharModal();
+            }
+        }
+
+        function abrirFotoModal(container) {
+            const imgElement = container.querySelector('img');
+            const legendaElement = container.querySelector('.foto-legenda') || container.parentElement.querySelector('h4');
+            
+            if (imgElement) {
+                const modalFoto = document.getElementById('modalFoto');
+                const imgModalAmpliada = document.getElementById('imgModalAmpliada');
+                const captionModalAmpliada = document.getElementById('captionModalAmpliada');
+                
+                imgModalAmpliada.src = imgElement.src;
+                imgModalAmpliada.alt = imgElement.alt || 'Foto';
+                captionModalAmpliada.textContent = legendaElement ? legendaElement.textContent : (imgElement.alt || '');
+                
+                modalFoto.classList.add('active');
+            }
+        }
+
+        function fecharFotoModal(event) {
+            if (event.target.id === 'modalFoto') {
+                document.getElementById('modalFoto').classList.remove('active');
+            }
+        }
+
+        function fecharFotoModalBtn() {
+            document.getElementById('modalFoto').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
